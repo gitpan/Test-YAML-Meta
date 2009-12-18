@@ -4,7 +4,7 @@ use warnings;
 use strict;
 
 use vars qw($VERSION);
-$VERSION = '0.14';
+$VERSION = '0.15';
 
 #----------------------------------------------------------------------------
 
@@ -146,6 +146,29 @@ q( Currently Listening To: Blondie - "Screaming Skin" from 'No Exit');
 __END__
 
 #----------------------------------------------------------------------------
+
+=head1 TESTING META FILES
+
+There are currently 3 distributions to test META files:
+
+  Test-CPAN-Meta
+  Test-JSON-Meta
+  Test-YAML-Meta
+
+All three have slightly different requirements and are intended to be used in
+slightly different environments. 
+
+Test-YAML-Meta requires a YAML parser, and currently looks for the YAML or 
+YAML::Syck modules. This is the original variant of the 3 and was intended to
+provide a more complete YAML validation of a META.yml.
+
+Test-CPAN-Meta requires the Parse::CPAN::Meta module, which is now part of Perl
+Core as of perl-5.10.1. This version is intended to be used by those only 
+wishing to rely on core modules to test their META.yml files.
+
+Test-JSON-Meta is the most recent addition to the family, and is specifically
+aimed at those distributions that use a META.json Meta file. The distribution
+requires the JSON module to parse the Meta file.
 
 =head1 BUGS, PATCHES & FIXES
 
